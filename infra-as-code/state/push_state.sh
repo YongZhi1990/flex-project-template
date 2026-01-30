@@ -26,7 +26,7 @@ done
 # We need a package.json with the project name to use the serverless: deploy command.
 package_json=$(
 	cat <<EOL
-{"name":"$project_name", "dependencies":{"twilio":"3.56","@twilio/runtime-handler":"1.3.0"}}
+{"name":"$project_name", "dependencies":{"twilio":"^5.0.0","@twilio/runtime-handler":"^2.0.0"}, "engines":{"node": "22"}}
 EOL
 )
 
@@ -35,5 +35,5 @@ verify_function=$(cat ./verify-signature.js)
 echo "$package_json" >./$project_name/package.json
 echo "$verify_function" >./$project_name/functions/verify-function.js
 
-npx twilio serverless:deploy --assets --production --override-existing-project --cwd="./$project_name"
+npx twilio serverless:deploy --assets --production --override-existing-project --cwd="./$project_name" --runtime=node22
 rm -rf $project_name
