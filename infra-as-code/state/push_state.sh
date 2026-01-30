@@ -26,7 +26,7 @@ done
 # We need a package.json with the project name to use the serverless: deploy command.
 package_json=$(
 	cat <<EOL
-{"name":"$project_name", "dependencies":{"twilio":"3.56","@twilio/runtime-handler":"1.3.0", "twilioserverless": {"runtime": "node22"}}}
+{"name":"$project_name", "dependencies":{"twilio":"3.56","@twilio/runtime-handler":"1.3.0"},"twilioserverless": {"runtime": "node22"}}
 EOL
 )
 
