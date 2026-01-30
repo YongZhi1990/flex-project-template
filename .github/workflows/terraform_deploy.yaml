@@ -39,6 +39,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: hashicorp/setup-terraform@v3
+      - name: Setup Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
       - name: install Twilio CLI
         run: |
           npm install --ignore-scripts
